@@ -7,19 +7,27 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password: ''
-h2:
-  console:
-    enabled: true
-jpa:
-  database-platform: org.hibernate.dialect.H2Dialect
-  hibernate:
-    ddl-auto: update
-    show-sql: true      
+  h2:
+   console:
+     enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+      show-sql: true   
+  config:
+    import:
+      - "application_qa.yml"
+      - "application_prod.yml"  
+  profiles: 
+    active:
+      - "qa"
+
 application:
   name:accounts
 
 build:
-  version: "1.0"  
+  version: "3.0"  
 
 accounts:
   message: "Welcome to Account microservice"
