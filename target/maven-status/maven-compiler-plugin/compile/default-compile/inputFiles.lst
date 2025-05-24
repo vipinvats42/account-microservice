@@ -2,6 +2,7 @@ G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\a
 G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\accounts\src\main\java\com\eazybytes\accounts\audit\AuditAwareImpl.java
 G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\accounts\src\main\java\com\eazybytes\accounts\constants\AccountsConstants.java
 G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\accounts\src\main\java\com\eazybytes\accounts\controller\AccountsController.java
+G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\accounts\src\main\java\com\eazybytes\accounts\dto\AccountContactInfoDto.java
 G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\accounts\src\main\java\com\eazybytes\accounts\dto\AccountsDTO.java
 G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\accounts\src\main\java\com\eazybytes\accounts\dto\CustomerDTO.java
 G:\vscode-project-docker\docker-boot-project\microservice\account-microservice\accounts\src\main\java\com\eazybytes\accounts\dto\ErrorResponseDTO.java

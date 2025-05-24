@@ -2,6 +2,7 @@ package com.eazybytes.accounts.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eazybytes.accounts.constants.AccountsConstants;
+import com.eazybytes.accounts.dto.AccountContactInfoDto;
 import com.eazybytes.accounts.dto.CustomerDTO;
 import com.eazybytes.accounts.dto.ErrorResponseDTO;
 import com.eazybytes.accounts.dto.ResponseDTO;
@@ -34,6 +36,7 @@ import jakarta.validation.constraints.Pattern;
 @RestController
 @RequestMapping(path = "/api", produces = MediaType.APPLICATION_JSON_VALUE)
 @Validated
+@EnableConfigurationProperties(value = AccountContactInfoDto.class)
 public class AccountsController {
 
         private IAccountService iAccountService;
@@ -43,6 +46,9 @@ public class AccountsController {
 
         @Autowired
         private Environment environment;
+
+        @Autowired
+        private AccountContactInfoDto accountContactInfoDto;
 
         public AccountsController(IAccountService iAccountService) {
                 this.iAccountService = iAccountService;
@@ -172,6 +178,19 @@ public class AccountsController {
                 return ResponseEntity
                                 .status(HttpStatus.OK)
                                 .body(environment.getProperty("JAVA_HOME"));
+        }
+
+        @Operation(summary = "Get Contact Info", description = "Contact info details that can be reached out in case of any issue")
+        @ApiResponses({
+                        @ApiResponse(responseCode = "200", description = "HTTP Status OK"),
+                        @ApiResponse(responseCode = "500", description = "HTTP Status Internal Server Error", content = @Content(schema = @Schema(implementation = ErrorResponseDTO.class)))
+        })
+
+        @GetMapping("/contact-info")
+        ResponseEntity<AccountContactInfoDto> getContactInfo() {
+                return ResponseEntity
+                                .status(HttpStatus.OK)
+                                .body(accountContactInfoDto);
         }
 
 }
