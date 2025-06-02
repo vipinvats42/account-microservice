@@ -5,6 +5,7 @@ com\eazybytes\accounts\controller\AccountsController.class
 com\eazybytes\accounts\exception\ResourceNotfoundexception.class
 com\eazybytes\accounts\audit\AuditAwareImpl.class
 com\eazybytes\accounts\dto\CustomerDTO.class
+com\eazybytes\accounts\dto\AccountContactInfoDto.class
 com\eazybytes\accounts\dto\ErrorResponseDTO.class
 com\eazybytes\accounts\repository\CustomerRepository.class
 com\eazybytes\accounts\dto\AccountsDTO.class

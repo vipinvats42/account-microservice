@@ -2,11 +2,16 @@ server:
   port: 8080
 
 spring:
+  config:
+    import: "optional:configserver:http://localhost:8071/"
   datasource: 
     url: jdbc:h2:mem:testdb  
     driverClassName: org.h2.Driver
     username: sa
     password: ''
+
+  profiles:
+    active: "prod"  
   h2:
    console:
      enabled: true
@@ -14,26 +19,13 @@ spring:
     database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
       ddl-auto: update
-      show-sql: true   
-  config:
-    import:
-      - "application_qa.yml"
-      - "application_prod.yml"  
-  profiles: 
-    active:
-      - "qa"
+      show-sql: true  
 
-application:
-  name:accounts
+  application:
+    name: "accounts"
 
 build:
   version: "3.0"  
 
-accounts:
-  message: "Welcome to Account microservice"
-  contactDetails:
-    name: "Vipin Tyagi"
-    email: "vipinvats88@gmail.com"
-  onCallSupport:
-    -(555) 666 7777
-    -(555) 666 8888    
+
+
